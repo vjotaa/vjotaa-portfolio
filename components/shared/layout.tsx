@@ -8,6 +8,8 @@ const Layout = ({ children }: any) => {
     { name: 'Home', href: '#', current: true },
     { name: 'About', href: '#', current: false },
     { name: 'Contact', href: '#', current: false },
+    { name: 'Articles', href: '#', current: false },
+    { name: 'Podcast', href: '#', current: false },
   ];
 
   function classNames(...classes: any) {
@@ -19,7 +21,7 @@ const Layout = ({ children }: any) => {
       <Disclosure as="nav">
         {({ open }: any) => (
           <>
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
               <div className="relative flex items-center justify-between h-16">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
@@ -35,7 +37,7 @@ const Layout = ({ children }: any) => {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex-shrink-0 flex items-center">
                     <Image
-                      className="hidden lg:block h-8 w-auto"
+                      className="hidden lg:block h-8 w-auto cursor-pointer"
                       src={logo}
                       alt="loading..."
                       height={50}
@@ -49,8 +51,8 @@ const Layout = ({ children }: any) => {
                           key={item.name}
                           href={item.href}
                           className={classNames(
-                            !item.current ? 'text-gray-500' : 'text-gold ',
-                            ' py-2 rounded-md text-md font-medium hover:text-gold px-3'
+                            !item.current ? 'text-blacky' : 'text-gold ',
+                            ' py-2 rounded-md text-md font-medium hover:text-gold px-3 text-xl'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -60,6 +62,7 @@ const Layout = ({ children }: any) => {
                     </div>
                   </div>
                 </div>
+
                 <div className=" absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   <Menu as="div" className="ml-3 relative">
                     <div>

@@ -5,12 +5,12 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sora': ['Sora', 'system-ui'],
-      'sora_bold': ['Sora-bold', 'system-ui'],
+      'pixel': ['VT323', 'system-ui'],
     },
     extend:{
       colors: {
         'gold': '#ffc300',
+        'blacky': '#333',
       },
     }
   },
