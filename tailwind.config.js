@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'pixel': ['VT323', 'system-ui'],
+      'pixel': ['Sora', 'system-ui'],
     },
     extend:{
       colors: {

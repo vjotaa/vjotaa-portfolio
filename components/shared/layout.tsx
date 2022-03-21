@@ -1,12 +1,14 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import logo from '../../assets/vcoin.gif';
+import Router from 'next/router';
+
 import Image from 'next/image';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 const Layout = ({ children }: any) => {
   const navigation = [
-    { name: 'Home', href: '#', current: true },
-    { name: 'About', href: '#', current: false },
+    { name: 'Home', href: '', current: true },
+    { name: 'About', href: 'ui', current: false },
     { name: 'Contact', href: '#', current: false },
     { name: 'Articles', href: '#', current: false },
     { name: 'Podcast', href: '#', current: false },
@@ -15,6 +17,11 @@ const Layout = ({ children }: any) => {
   function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
   }
+
+  const handleClick = (e: any, href: string) => {
+    e.preventDefault();
+    Router.push(`/${href}`);
+  };
 
   return (
     <>
@@ -49,10 +56,12 @@ const Layout = ({ children }: any) => {
                       {navigation.map((item) => (
                         <a
                           key={item.name}
-                          href={item.href}
+                          onClick={(e) => {
+                            handleClick(e, item.href);
+                          }}
                           className={classNames(
                             !item.current ? 'text-blacky' : 'text-gold ',
-                            ' py-2 rounded-md text-md font-medium hover:text-gold px-3 text-xl'
+                            ' py-2 rounded-md text-md font-medium cursor-pointer hover:text-gold px-3 text-xl'
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
